@@ -82,8 +82,10 @@ if __name__ == '__main__':
     print(month)
 
     group_length = 8
-    with open("documents.txt", 'w') as f:
+    total_number = len(love_hate) * len(noun_sin) * len(aspects) * len(verbb) * len(adjective) * len(month)
+    current_Value = 1
 
+    with open("documents.txt", 'w') as f:
         for feeling in love_hate:
             for noun in noun_sin:
                 for aspect_choices in aspects:
@@ -97,4 +99,6 @@ if __name__ == '__main__':
                                 f.write(result)
                                 f.write("\n-------------------------------------------------------\n")
                                 f.flush()
+                                i += 1
+                                print("{} out of {}: {}%", i, total_number, i / total_number)
     driver.close()
